@@ -1,8 +1,9 @@
 # Godot
 client/.godot/
 client/.import/
-client/export_presets.cfg
 client/*.translation
+client/android/build/
+builds/
 
 # Go
 server/mobiloyun-server

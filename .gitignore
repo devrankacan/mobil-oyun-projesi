@@ -1,0 +1,12 @@
+# Godot
+client/.godot/
+client/.import/
+client/export_presets.cfg
+client/*.translation
+
+# Go
+server/mobiloyun-server
+server/*.exe
+
+# OS
+.DS_Store

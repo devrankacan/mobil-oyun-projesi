@@ -12,7 +12,7 @@ Android için 2D, gerçek zamanlı çok oyunculu arena oyunu (agar.io/slither.io
 ```bash
 cd server
 go run .
-# :8080 üzerinde dinler, endpoint: ws://<host>:8080/ws
+# :7777 üzerinde dinler, endpoint: ws://<host>:7777/ws
 ```
 
 VPS'e deploy ederken `server` klasörünü derleyip (`go build`) çalıştırman yeterli; harici bağımlılık yok (statik binary).
@@ -20,7 +20,7 @@ VPS'e deploy ederken `server` klasörünü derleyip (`go build`) çalıştırman
 ## İstemciyi açma
 
 1. Godot 4.3+ Editor ile `client/` klasörünü aç.
-2. `client/scripts/NetworkManager.gd` içindeki `SERVER_URL` sabitini kendi VPS IP/domain'in ile güncelle (`ws://VPS_IP:8080/ws`).
+2. `client/scripts/NetworkManager.gd` içindeki `SERVER_URL` sabitini kendi VPS IP/domain'in ile güncelle (`ws://VPS_IP:7777/ws`).
 3. Android export presetlerini Godot'tan ayarla (Project > Export > Android), APK/AAB üret.
 
 ## Yapılacaklar (sıradaki adımlar)

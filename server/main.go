@@ -24,7 +24,7 @@ func main() {
 		handleWS(room, w, r)
 	})
 
-	addr := ":8080"
+	addr := ":7777"
 	log.Println("server listening on", addr)
 	if err := http.ListenAndServe(addr, nil); err != nil {
 		log.Fatal(err)

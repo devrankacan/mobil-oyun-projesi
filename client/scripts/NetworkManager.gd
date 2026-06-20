@@ -7,7 +7,7 @@ signal connected
 signal disconnected
 signal state_received(players: Array, food: Array)
 
-const SERVER_URL := "ws://158.220.115.16:8080/ws"
+const SERVER_URL := "ws://158.220.115.16:7777/ws"
 
 var socket := WebSocketPeer.new()
 var your_id: String = ""

@@ -13,7 +13,7 @@ func get_direction() -> Vector2:
 	return _direction
 
 func _gui_input(event: InputEvent) -> void:
-	if event is InputEventScreenTouch:
+	if event is InputEventScreenTouch or event is InputEventMouseButton:
 		if event.pressed:
 			_active = true
 			_origin = event.position
@@ -22,7 +22,7 @@ func _gui_input(event: InputEvent) -> void:
 			_active = false
 			_direction = Vector2.ZERO
 		queue_redraw()
-	elif event is InputEventScreenDrag and _active:
+	elif (event is InputEventScreenDrag or event is InputEventMouseMotion) and _active:
 		var offset: Vector2 = event.position - _origin
 		_direction = offset.limit_length(MAX_RADIUS) / MAX_RADIUS
 		queue_redraw()

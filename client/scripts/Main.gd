@@ -12,6 +12,7 @@ const SELF_COLOR := Color(1.0, 0.6, 0.1)
 const FOOD_COLOR := Color(0.3, 0.9, 0.4)
 
 @onready var joystick: Node = $TouchJoystick
+@onready var camera: Camera2D = $Camera2D
 
 func _ready() -> void:
 	NetworkManager.state_received.connect(_on_state_received)
@@ -20,6 +21,10 @@ func _ready() -> void:
 func _on_state_received(players: Array, food: Array) -> void:
 	players_state = players
 	food_state = food
+	for p in players_state:
+		if p.id == NetworkManager.your_id and p.alive:
+			camera.position = Vector2(p.pos.x, p.pos.y)
+			break
 	queue_redraw()
 
 func _process(_delta: float) -> void:

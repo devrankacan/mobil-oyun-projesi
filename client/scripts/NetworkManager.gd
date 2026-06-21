@@ -35,8 +35,11 @@ func _process(_delta: float) -> void:
 		_connecting = false
 		connected.emit()
 
-	if state == WebSocketPeer.STATE_CLOSED and not _connecting:
-		disconnected.emit()
+	if state == WebSocketPeer.STATE_CLOSED:
+		if _connecting or not your_id.is_empty():
+			_connecting = false
+			your_id = ""
+			disconnected.emit()
 		return
 
 	while socket.get_available_packet_count() > 0:
